@@ -1,1 +1,1 @@
-# SAL_IT_K8s
+# SAL_KubernITes
