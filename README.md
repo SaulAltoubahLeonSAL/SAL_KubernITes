@@ -3,7 +3,7 @@
 ## "Infraestructura IT integrada en Kubernetes"
 
 <p align="center">
-  <img width="460" height="300" src="/SAL_kubernITes_logo.png">
+  <img src="/SAL_kubernITes_logo.png">
 </p>
 
 ## (SAL_kubernITes - SAL_kITs)
@@ -15,7 +15,7 @@
 ## - **_Curso_**: 2021 - 2022
 
 <p align="center">
-  <img width="460" height="300" src="/ies_fernando_wirtz_logo.png">
+  <img src="/ies_fernando_wirtz_logo.png">
 </p>
 
 En este repositorio de **_GitHub_** se encuentra el código y las capturas de pantalla de todo el proyecto.
