@@ -23,6 +23,8 @@ En este repositorio de **_GitHub_** se encuentra el código y las capturas de pa
 Para visualizar la temporalidad del proyecto, haz click [aquí](https://aware-mirror-1cd.notion.site/PROYECTO-ASIR-IES-FERNANDO-WIRTZ-50b662a3fba94430b08b6ef92782dfbb) en mi página del proyecto personal en **_Notion_**.
 
 <br /><br />
+<hr />
+<br /><br />
 
 <p align="center">
   <img src="/cc_by_nc_nd.png">
