@@ -36,6 +36,6 @@ Esta obra está sujeta a una licencia de [Reconocimiento-NoComercial-SinObraDeri
 
 <br /><br />
 
-Copyright &copy; **Saúl Altoubah León**
+Copyright &copy; **Saúl Altoubah León** 2021
 
 Reservados todos los derechos. Está prohibido la reproducción total o parcial de esta obra por cualquier medio o procedimiento, comprendidos la impresión, la reprografía, el microfilme, el tratamiento informático o cualquier otro sistema, así como la distribución de ejemplares mediante alquiler y préstamo, sin la autorización escrita del autor o de los límites que autorice la **_Ley de Propiedad_**.
