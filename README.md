@@ -25,7 +25,7 @@ Para visualizar la temporalidad del proyecto, haz click [aquí](https://aware-mi
 <br /><br />
 
 <p align="center">
-  <img src="/cc_by_nc_nd_logo.png">
+  <img src="/cc_by_nc_nd.png">
 </p>
 
 Esta obra está sujeta a una licencia de [Reconocimiento-NoComercial-SinObraDerivada 4.0 Internacional (CC-BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es_ES)
