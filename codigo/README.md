@@ -303,3 +303,16 @@ helm version
 ```
 
 ![helm_version](/capturas/28_comprobacion_version_helm.JPG)
+
+<br />
+
+### - Instalación de Netdata usando _Helm Charts_
+
+```bash
+
+helm repo add netdata https://netdata.github.io/helmchart
+helm install netdata netdata/netdata
+
+```
+
+![netdata_helm_chart](/capturas/29_instalacion_netdata_helm_chart.JPG)
