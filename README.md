@@ -6,7 +6,7 @@
   <img src="/SAL_kubernITes_logo.png">
 </p>
 
-### (SAL_kubernITes - SAL_kITs)
+<p align="center"><b>(SAL_kubernITes - SAL_kITs)</b></p>
 
 ### - **_Autor_**: Saúl Altoubah León
 
