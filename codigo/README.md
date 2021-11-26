@@ -207,8 +207,53 @@ source ~/.bashrc
 ### - Mostrar todos los **_namespaces_** de Minikube
 
 ```bash
+
 kubectl get all -Ao wide
 
 ```
 
 ![kubectl_ns](/capturas/19_kubectl_get_ns.JPG)
+
+<br />
+
+### - Lista de addons de Minikube
+
+```bash
+
+minikube addons list
+
+```
+
+![minikube_addons_list](/capturas/20_lista_addons_minikube.JPG)
+
+<br />
+
+### - Habilitar addons: métricas Kubernetes Dashboard, Helm Tiller, Ingress
+
+```bash
+
+minikube addons enable metrics-server
+minikube addons enable helm-tiller
+minikube addons enable ingress-dns
+
+```
+
+![enable_minikube_addons](/capturas/21_activar_addons_minikube.JPG)
+
+<br />
+
+### - Acceder al Dashboard de Kubernetes
+
+```bash
+
+minikube dashboard
+
+```
+
+![kubernetes_dashboard](/capturas/22_kubernetes_dashboard.JPG)
+
+<br />
+
+### - Dashboard de Kubernetes GUI
+
+![kubernetes_dashboard_gui](/capturas/23_kubernetes_dashboard_gui.JPG)
