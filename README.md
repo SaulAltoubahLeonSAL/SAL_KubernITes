@@ -6,13 +6,13 @@
   <img src="/SAL_kubernITes_logo.png">
 </p>
 
-## (SAL_kubernITes - SAL_kITs)
+### (SAL_kubernITes - SAL_kITs)
 
-## - **_Autor_**: Saúl Altoubah León
+### - **_Autor_**: Saúl Altoubah León
 
-## - **_Grupo_**: ASIA/B
+### - **_Grupo_**: ASIA/B
 
-## - **_Curso_**: 2021 - 2022
+### - **_Curso_**: 2021 - 2022
 
 <p align="center">
   <img src="/ies_fernando_wirtz_logo.png">
