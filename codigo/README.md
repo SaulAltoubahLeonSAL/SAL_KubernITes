@@ -233,7 +233,6 @@ minikube addons list
 ```bash
 
 minikube addons enable metrics-server
-minikube addons enable helm-tiller
 minikube addons enable ingress-dns
 
 ```
@@ -257,3 +256,50 @@ minikube dashboard
 ### - Dashboard de Kubernetes GUI
 
 ![kubernetes_dashboard_gui](/capturas/23_kubernetes_dashboard_gui.JPG)
+
+<br />
+
+### - Descarga de Lens IDE
+![lens_ide](/capturas/24_descarga_Lens_IDE.JPG)
+
+<br />
+
+### - Interfaz gráfica Lens IDE
+![lens_ide_gui](/capturas/25_descarga_Lens_IDE_gui.JPG)
+
+<br />
+
+### - Instalación clave GPG y paquetes de Helm
+
+```bash
+
+curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
+echo "deb https://baltocdn.com/helm/stable/debian/ all main" sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+
+```
+
+![GPGkey_packages_helm](/capturas/26_instalacion_GPGkey_paquetes_helm.JPG)
+
+<br />
+
+### - Instalación Helm
+
+```bash
+
+sudo apt install helm -y
+
+```
+
+![installation_helm](/capturas/27_instalacion_helm.JPG)
+
+<br />
+
+### - Comprobación de versión de Helm
+
+```bash
+
+helm version
+
+```
+
+![helm_version](/capturas/28_comprobacion_version_helm.JPG)
