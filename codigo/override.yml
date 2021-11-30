@@ -1,0 +1,11 @@
+parent:
+  claiming:
+    enabled: true
+    token: joyTR3toT_lA1RC15Kop5vN93Xk_ofkh9vxRRk6_AhDZJLsKzO6Ww6bxsf14OiJZoosAQ7JKOeyfp46YkiqOsgCi2MszqYLLVYyM6ZaRHvQNySWnz-0Tig4Nhniw3B09QYrmwwI
+    rooms: 4edae1ee-695e-4e87-ba46-ba99bb467f12
+    
+child:
+  claiming:
+    enabled: true
+    token: joyTR3toT_lA1RC15Kop5vN93Xk_ofkh9vxRRk6_AhDZJLsKzO6Ww6bxsf14OiJZoosAQ7JKOeyfp46YkiqOsgCi2MszqYLLVYyM6ZaRHvQNySWnz-0Tig4Nhniw3B09QYrmwwI
+    rooms: 4edae1ee-695e-4e87-ba46-ba99bb467f12
