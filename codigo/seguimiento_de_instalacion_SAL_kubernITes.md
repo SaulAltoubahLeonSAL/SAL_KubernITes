@@ -401,3 +401,45 @@ ls -lisha /etc/docker
 ```
 
 ![etc-docker](/capturas/38_comprobacion-cambio_permisos_archivo_etc-docker.JPG)
+
+<br />
+
+### - Creación y conversión docker-compose.yaml a "_deployments_" en .yaml para servidor OpenVPN en Minikube
+
+```yaml
+version: "2"
+services:
+  openvpn:
+    cap_add:
+      - NET_ADMIN
+    image: kylemanna/openvpn
+    container_name: openvpn
+    ports:
+      - "1194:1194/udp"
+    restart: always
+    volumes:
+      - ./openvpn-data/conf:/etc/openvpn
+
+```
+
+```bash
+kompose convert -f docker-compose.yaml
+
+```
+
+![docker-compose-deployment-yaml-openvpn-server](/capturas/39_creacion_conversion_docker-compose-deployment-openvpn_server.JPG)
+
+<br />
+
+### - Aplicación de archivos _.yaml_ en Minikube
+
+```bash
+kubectl apply -f openvpn-claim0-persistenvolumeclaim.yaml
+
+kubectl apply -f openvpn-deployment.yaml
+
+kubectl apply -f openvpn-service.yaml
+
+```
+
+![aplicacion_yaml_minikube](/40_aplicacion_archivos_yaml_openvpn_minikube.JPG)
