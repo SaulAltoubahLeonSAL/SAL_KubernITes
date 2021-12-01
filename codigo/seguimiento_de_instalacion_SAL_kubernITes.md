@@ -334,3 +334,70 @@ bash <(curl -Ss https://my-netdata.io/kickstart.sh) --claim-token 9j7nx0c7y9Bo_k
 ### - Actualización de nodos en Netdata Cloud
 
 ![netdata_helm_chart](/capturas/31_pods_netdata.JPG)
+
+<br />
+
+### - Interfaz web Netdata Cloud
+
+![netdata_cloud](/capturas/32_interfaz_web_netdata_cloud.JPG)
+
+<br />
+
+### - Instalación LinuxAudit
+
+![linuxaudit](/capturas/33_descarga_LinuxAudit.JPG)
+
+<br />
+
+### - Ejecución LinuxAudit
+(SE RECOMIENDA MIRAR EL ARCHIVO _Logs/LinuxAudit.log_)
+
+![linuxaudit](/capturas/34_ejecucion_linuxaudit.JPG)
+
+<br />
+
+### - Comprobación/Cambio permisos archivo _docker.service_
+
+```bash
+sudo systemctl status docker
+
+ls -lisha /lib/systemd/system/docker.service
+
+```
+
+![docker_service](/capturas/35_comprobacion-cambio_permisos_archivo_docker-service.JPG)
+
+<br />
+
+### - Comprobación/Cambio permisos archivo _docker.socket_
+
+```bash
+sudo find /*/*/*/*/docker.socket
+
+ls -lisha /usr/lib/systemd/system/docker.socket
+
+```
+
+![docker_socket](/capturas/36_comprobacion-cambio_permisos_archivo_docker-socket.JPG)
+
+<br />
+
+### - Comprobación/Cambio permisos archivo _/etc/default/docker_
+
+```bash
+ls -lisha /etc/default/docker
+
+```
+
+![etc-default-docker](/capturas/37_comprobacion-cambio_permisos_archivo_etc-default-docker.JPG)
+
+<br />
+
+### - Comprobación/Cambio permisos archivo _/etc/docker_
+
+```bash
+ls -lisha /etc/docker
+
+```
+
+![etc-docker](/capturas/38_comprobacion-cambio_permisos_archivo_etc-docker.JPG)
