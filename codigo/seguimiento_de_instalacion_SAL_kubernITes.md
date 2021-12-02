@@ -470,8 +470,8 @@ spec:
   - ReadWriteOnce
   hostPath:
     path: "/mnt/data"
-```
-```yaml
+---
+
 # postgres-pvc.yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
