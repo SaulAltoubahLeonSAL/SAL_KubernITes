@@ -4,6 +4,10 @@
 
 <br />
 
+## - Instalaciones previas:
+
+<br />
+
 ### - SAL_kubernITes instalado
 
 ![server_sal_kubernITes](/capturas/01_sal_kubernITes_instalado.JPG)
@@ -195,7 +199,7 @@ minikube start
 ```bash
 
 vim ~/.bashrc
-"añadir en la última línea del archivo" -> alias kubectl="minikube kubectl --"
+"añadir en la última línea del archivo" -> alias kubectl="minikube kubectl -- "
 source ~/.bashrc
 
 ```
@@ -204,7 +208,7 @@ source ~/.bashrc
 
 <br />
 
-### - Mostrar todos los **_namespaces_** de Minikube
+### - Instalación de _kubectl_ y muestra de todos los **_namespaces_** de Minikube
 
 ```bash
 
@@ -265,7 +269,7 @@ minikube dashboard
 <br />
 
 ### - Interfaz gráfica Lens IDE
-![lens_ide_gui](/capturas/25_descarga_Lens_IDE_gui.JPG)
+![lens_ide_gui](/capturas/25_Lens_IDE_gui.JPG)
 
 <br />
 
@@ -302,7 +306,7 @@ helm version
 
 ```
 
-![helm_version](/capturas/28_comprobacion_version_helm.JPG)
+![helm_version](/capturas/28_comprobacion_helm_version.JPG)
 
 <br />
 
