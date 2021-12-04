@@ -232,16 +232,19 @@ minikube addons list
 
 <br />
 
-### - Habilitar addons: métricas Kubernetes Dashboard, Helm Tiller, Ingress
+### - Habilitar addons: métricas Kubernetes Dashboard
 
 ```bash
 
-minikube addons enable metrics-server
-minikube addons enable ingress-dns
+minikube addons enable metrics-server # Para utilizar Kubernetes Dashboard
 
 ```
 
 ![enable_minikube_addons](/capturas/21_activar_addons_minikube.JPG)
+
+<br />
+
+## - Monitorización
 
 <br />
 
