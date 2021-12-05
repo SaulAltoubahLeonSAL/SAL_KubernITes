@@ -361,7 +361,7 @@ bash <(curl -Ss https://my-netdata.io/kickstart.sh) --claim-token 9j7nx0c7y9Bo_k
 <br />
 
 ### - Ejecución LinuxAudit
-(SE RECOMIENDA MIRAR EL ARCHIVO _Logs/LinuxAudit.log_)
+(SE RECOMIENDA MIRAR EL ARCHIVO [_/codigo/logs/LinuxAudit.log_](/codigo/logs/LinuxAudit.log))
 
 ![linuxaudit](/capturas/34_ejecucion_linuxaudit.JPG)
 
@@ -415,7 +415,8 @@ ls -lisha /etc/docker
 
 <br />
 
-### - Creación y conversión docker-compose.yaml a "_deployments_" en .yaml para servidor OpenVPN en Minikube
+### - **_OPCIÓN A_**: POD OpenVPN Server
+###   · Creación y conversión docker-compose.yaml a "_deployments_" en .yaml para servidor OpenVPN en Minikube
 
 ```yaml
 version: "2"
@@ -453,84 +454,94 @@ kubectl apply -f openvpn-service.yaml
 
 ```
 
-![aplicacion_yaml_minikube](/40_aplicacion_archivos_yaml_openvpn_minikube.JPG)
+![aplicacion_yaml_minikube](/capturas/40_aplicacion_archivos_yaml_openvpn_minikube.JPG)
+
+**(DESGRACIADAMENTE ESTA PARTE NO HA PODIDO FUNCIONAR. PASAMOS AL _PLAN B_: OpenVPN Server docker-compose)**
 
 <br />
 
-### - Creación de _deployments_ _.yaml_ para PostgreSQL
-```bash
-helm repo add bitnami https://charts.bitnami.com/bitnami
-
-helm repo update
-
-```
-
-```yaml
-# postgres-pv.yaml
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: postgresql-pv
-  labels:
-    type: local
-spec:
-  storageClassName: manual
-  capacity:
-    storage: 10Gi
-  accessModes:
-  - ReadWriteOnce
-  hostPath:
-    path: "/mnt/data"
----
-
-# postgres-pvc.yaml
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: postgresql-pv-claim
-spec:
-  storageClassName: manual
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 10Gi
-```
+### - OPCIÓN B: _Docker Container OpenVPN Server_
+###   · Preparación _docker-compose_ OpenVPN Server (I)
 
 ```bash
-kubectl apply -f postgres-pv.yaml
-
-kubectl apply -f postgres-pvc.yaml
-
-helm install psql-kubernites bitnami/postgresql --set persistence.existingClaim=postgresql-pv-claim --set volumePermissions.enabled=true
+ifconfig ens32
+cat /etc/hosts | grep "vpn"
 
 ```
 
-![aplicacion_yaml_minikube](/40_aplicacion_archivos_yaml_openvpn_minikube.JPG)
+![docker-compose_openvpn_server_I](/capturas/41_preparacion_docker-compose_openvpn_server_I.JPG)
 
 <br />
 
-### - Aplicación de archivos _.yaml_ e instalación Helm Chart PostgreSQL
+### - Preparación _docker-compose_ OpenVPN Server (II - Configuración)
 
 ```bash
-kubectl apply -f postgres-pv.yaml
-
-kubectl apply -f postgres-pvc.yaml
-
-helm install psql-kubernites bitnami/postgresql --set persistence.existingClaim=postgresql-pv-claim --set volumePermissions.enabled=true
+docker-compose run --rm openvpn ovpn_genconfig -u udp://VPN.SAL-KUBERNITES.LOCAL
 
 ```
 
-![aplicacion_yaml_minikube](/40_aplicacion_archivos_yaml_openvpn_minikube.JPG)
+![docker-compose_openvpn_server_II](/capturas/42_preparacion_docker-compose_openvpn_server_II.JPG)
 
 <br />
 
-### - Acceso a PostgreSQL mediante _Port-Forward:**5432**_
+### - Preparación _docker-compose_ OpenVPN Server (III - _initpki_(1))
 
 ```bash
-export POSTGRES_PASSWORD=$(kubectl get secret --namespace default psql-kubernites-postgresql -o jsonpath="{.data.postgresql-password}" | base64 --decode)
-
+docker-compose run --rm openvpn ovpn_initpki
 
 ```
 
-![aplicacion_yaml_minikube](/40_aplicacion_archivos_yaml_openvpn_minikube.JPG)
+![docker-compose_openvpn_server_III](/capturas/43_preparacion_docker-compose_openvpn_server_III.JPG)
+
+<br />
+
+### - Preparación _docker-compose_ OpenVPN Server (IV - _initpki_(2))
+
+![docker-compose_openvpn_server_IV](/capturas/44_preparacion_docker-compose_openvpn_server_IV.JPG)
+
+<br />
+
+### - Preparación _docker-compose_ OpenVPN Server (V - Compobación propiedad carpetas _openvpn-data_)
+
+```bash
+sudo chown $(whoami): ./openvpn-data
+ls -l ./openvpn-data
+sudo whoami
+
+```
+
+![docker-compose_openvpn_server_V](/capturas/45_preparacion_docker-compose_openvpn_server_V.JPG)
+
+<br />
+
+### - Ejecución y comporbación OpenVPN Server _docker-compose_)
+
+```bash
+docker-compose up -d openvpn
+docker-compose logs -f
+```
+
+![docker-compose_openvpn_server_running](/capturas/46_docker-compose_openvpn_server_corriendo.JPG)
+
+<br />
+
+### - _docker-compose_ OpenVPN Server (Certificado cliente)
+
+```bash
+export CLIENTNAME="SAL_kITs"
+docker-compose run --rm openvpn easyrsa build-client-full $CLIENTNAME
+
+```
+
+![docker-compose_openvpn_server_V](/capturas/47_docker-compose_openvpn_server_cert_cliente.JPG)
+
+<br />
+
+### - _docker-compose_ OpenVPN Server (_SAL_kITs.ovpn_)
+
+```bash
+docker-compose run --rm openvpn ovpn_getclient $CLIENTNAME > $CLIENTNAME.ovpn
+
+```
+
+![docker-compose_openvpn_server_V](/capturas/48_docker-compose_openvpn_server_clientfile.JPG)
