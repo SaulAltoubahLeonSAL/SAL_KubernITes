@@ -350,6 +350,10 @@ bash <(curl -Ss https://my-netdata.io/kickstart.sh) --claim-token 9j7nx0c7y9Bo_k
 
 <br />
 
+## - Seguridad
+
+<br />
+
 ### - Instalación LinuxAudit
 
 ![linuxaudit](/capturas/33_descarga_LinuxAudit.JPG)
