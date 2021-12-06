@@ -544,7 +544,4 @@ docker-compose run --rm openvpn ovpn_getclient $CLIENTNAME > $CLIENTNAME.ovpn
 
 ```
 
-![docker-compose_openvpn_server_V](/capturas/48_docker-compose_openvpn_server_clientfile.JPG)
-
-![aplicacion_yaml_minikube](/40_aplicacion_archivos_yaml_openvpn_minikube.JPG)
-
+![docker-compose_openvpn_server_clientfile](/capturas/48_docker-compose_openvpn_server_clientfile.JPG)
