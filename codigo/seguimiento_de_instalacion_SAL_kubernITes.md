@@ -88,7 +88,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
 ```bash
 
-sudo add-apt-repository "deb[arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 
 ```
 
@@ -281,6 +281,7 @@ minikube dashboard
 ```bash
 
 curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
+
 echo "deb https://baltocdn.com/helm/stable/debian/ all main" sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
 
 ```
@@ -476,7 +477,7 @@ cat /etc/hosts | grep "vpn"
 ### - Preparación _docker-compose_ OpenVPN Server (II - Configuración)
 
 ```bash
-docker-compose run --rm openvpn ovpn_genconfig -u udp://VPN.SAL-KUBERNITES.LOCAL
+docker-compose run --rm openvpn ovpn_genconfig -u udp://VPN.SAL-KUBERNITES.LOCAL #localhost:1194
 
 ```
 
@@ -540,8 +541,151 @@ docker-compose run --rm openvpn easyrsa build-client-full $CLIENTNAME
 ### - _docker-compose_ OpenVPN Server (_SAL_kITs.ovpn_)
 
 ```bash
-docker-compose run --rm openvpn ovpn_getclient $CLIENTNAME > $CLIENTNAME.ovpn
+docker-compose run --rm openvpn ovpn_getclient $CLIENTNAME > $CLIENTNAME.ovpn 
+# modificar el archivo y sustituir "localhost" por la IP del servidor
 
 ```
 
 ![docker-compose_openvpn_server_clientfile](/capturas/48_docker-compose_openvpn_server_clientfile.JPG)
+
+<br />
+
+## - RBAC (Role Based Access Control)
+### - Creación clave privada de usuario
+
+```bash
+sudo mkdir cert && cd cert
+
+sudo openssl genrsa --out sal.key 2048
+```
+
+![rbac_user_private_cert](/capturas/49_rbac_I.JPG)
+
+<br />
+
+### - Creación _request_ para certificado
+
+```bash
+sudo openssl req --new \
+  --key sal.key \
+  --out sal.csr \
+  --subj "/CN=sal/O=salkubernites"
+```
+
+![rbac_user_req_cert](/capturas/50_rbac_II.JPG)
+
+<br />
+
+### - Creación certificado x.509 de usuario
+
+```bash
+# Revisamos que existen los certificado y la clave privada de Minikube (ca.crt, ca.key)
+ls -lisha ~/.minikube/ca.*
+
+sudo openssl x509 --req \
+  --in sal.csr \
+  --CA ~/.minikube/ca.crt \
+  --CAkey ~/.minikube/ca.key \
+  --CAcreateserial \
+  --out sal.crt \
+  --days 500
+# Este certificado "sal.crt" será para el administrador del cluster de Kubernetes
+```
+
+![rbac_user_req_cert](/capturas/51_rbac_III.JPG)
+
+<br />
+
+### - Enlazado de certificado y clave privada y creación de contexto de usuario
+
+```bash
+kubectl config set-credentials sal \
+  --client-certificate=sal.crt \
+  --client-key=sal.key
+
+kubectl config set-context sal-context \
+  --cluster=minikube \
+  --namespace=default \
+  --user=sal
+```
+
+![rbac_user_req_cert](/capturas/52_rbac_IV.JPG)
+
+<br />
+
+### - Cambio de contexto de cluster
+
+```bash
+kubectl config use-context sal-context
+
+kubectl config current-context
+```
+
+![rbac_user_req_cert](/capturas/53_rbac_V.JPG)
+
+<br />
+
+### - Comporbación de permisos en el cluster
+
+```bash
+kubectl create ns sal-ns # Prohibido
+
+kubectl get pods # También prohibido
+```
+(Si hay problemas de permisos, ejecutar _```bash sudo chown ${USER}:${USER} sal.*```_)
+
+![rbac_user_req_cert](/capturas/54_rbac_VI.JPG)
+
+<br />
+
+### - Despliegue de _Role & RoleBinding_ (Asignación de permisos)
+```bash
+kubectl config use-context minikube
+```
+
+```yaml
+# role.yaml
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  namespace: default
+  name: pod-lector
+rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["get", "watch", "list"]
+# Este .yaml creará las acciones para permitir la lectura de pods disponibles en el cluster
+
+---
+
+# rolebinding.yaml
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: read-pods
+  namespace: default
+subjects:
+- kind: User
+  name: sal
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: pod-reader # *lector
+  apiGroup: rbac.authorization.k8s.io
+  # Este archivo .yaml enlazará el "role" de "pod-lector" junto con el usuario "sal"
+```
+
+```bash
+kubectl apply -f role.yaml
+
+kubectl apply -f rolebinding.yaml
+
+kubectl get roles,rolebindings
+
+# Para comprobar
+kubectl use-context sal-context
+
+kubectl get pods 
+```
+
+![rbac_user_req_cert](/capturas/55_rbac_VII.JPG)
