@@ -541,7 +541,7 @@ docker-compose run --rm openvpn easyrsa build-client-full $CLIENTNAME
 ### - _docker-compose_ OpenVPN Server (_SAL_kITs.ovpn_)
 
 ```bash
-docker-compose run --rm openvpn ovpn_getclient $CLIENTNAME > $CLIENTNAME.ovpn 
+docker-compose run --rm openvpn ovpn_getclient $CLIENTNAME > $CLIENTNAME.ovpn
 # modificar el archivo y sustituir "localhost" por la IP del servidor
 
 ```
@@ -689,3 +689,99 @@ kubectl get pods
 ```
 
 ![rbac_user_req_cert](/capturas/55_rbac_VII.JPG)
+
+<br />
+
+### - Comprobación final de permisos de usuario
+
+```bash
+kubectl config use-context sal-context
+
+kubectl get pods
+```
+
+![rbac_context_final_check](/capturas/56_rbac_VIII.JPG)
+
+<br />
+
+## - Almacenamiento de datos - StatefulSet Helm Chart PostgreSQL
+### - Preparación del terreno de campo, instalación y actualización de chart Helm de Bitnami
+
+```bash
+helm repo add bitnami https://charts.bitnami.com/bitnami
+
+helm repo update
+```
+
+![helm_postgresql_repo_add_install](/capturas/57_helm_postgresql_I.JPG)
+
+<br />
+
+### - Creación de _namespace_ "sal-postgresql" e instalación de repositorio PostgreSQL
+
+```bash
+kubectl create namespace sal-postgresql
+
+kubectl get ns # Comprobación
+
+helm install postgresql bitnami/postgresql -n sal-postgresql
+```
+
+![helm_postgresql_repo_install](/capturas/58_helm_postgresql_II.JPG)
+
+<br />
+
+### - Comprobación de objetos K8s PostgreSQL
+
+```bash
+kubectl -n sal-postgresql get pos,svc,pv,pvc -o wide # Pods, servicios, "persistent-volume", "persistent-volume-claim"
+```
+
+![helm_postgresql_check](/capturas/59_helm_postgresql_III.JPG)
+
+<br />
+
+### - Obtención contraseña PostgreSQL K8s
+
+```bash
+export POSTGRES_PASSWORD=$(kubectl get secret --namespace sal-postgresql postgresql -o jsonpath="{.data.postgresql-password}" | base64 --decode)
+
+echo $POSTGRES_PASSWORD
+```
+
+![helm_postgresql_check](/capturas/60_helm_postgresql_IV.JPG)
+
+<br />
+
+### - Conexión a la base de datos de PostgreSQL CLI
+
+```bash
+kubectl run postgresql-client --rm --tty -i --restart='Never' --namespace sal-postgresql --image docker.io/bitnami/postgresql:11.14.0-debian-10-r17 --env="PGPASSWORD=$POSTGRES_PASSWORD" --command -- psql --host postgresql -U postgres -d postgres -p 5432
+```
+
+![helm_postgresql_check](/capturas/61_helm_postgresql_V.JPG)
+
+
+<br />
+
+### - Conexión a la base de datos de PostgreSQL _"remota"_ desde DBeaver
+
+```bash
+kubectl port-forward --namespace sal-postgresql svc/postgresql 5432:5432 & PGPASSWORD="$POSTGRES_PASSWORD" psql --host 127.0.0.1 -U postgres -d postgres -p 5432
+# Una vez ejecutado pulsar CTRL+C y aparecerá el prompt de PostgreSQL
+```
+
+![helm_postgresql_check](/capturas/62_helm_postgresql_VI.JPG)
+
+<br />
+
+## - Redes
+### - Preparación del terreno de campo, instalación y actualización de chart Helm de Bitnami
+
+```bash
+helm repo add bitnami https://charts.bitnami.com/bitnami
+
+helm repo update
+```
+
+![helm_postgresql_repo_add_install](/capturas/57_helm_postgresql_I.JPG)

@@ -1,0 +1,308 @@
+Attaching to openvpn
+[36mopenvpn    |[0m Checking IPv6 Forwarding
+[36mopenvpn    |[0m Sysctl error for disable_ipv6, please run docker with '--sysctl net.ipv6.conf.all.disable_ipv6=0'
+[36mopenvpn    |[0m Sysctl error for default forwarding, please run docker with '--sysctl net.ipv6.conf.default.forwarding=1'
+[36mopenvpn    |[0m Sysctl error for all forwarding, please run docker with '--sysctl net.ipv6.conf.all.forwarding=1'
+[36mopenvpn    |[0m Running 'openvpn --config /etc/openvpn/openvpn.conf --client-config-dir /etc/openvpn/ccd --crl-verify /etc/openvpn/crl.pem '
+[36mopenvpn    |[0m Fri Dec 10 19:26:47 2021 OpenVPN 2.4.9 x86_64-alpine-linux-musl [SSL (OpenSSL)] [LZO] [LZ4] [EPOLL] [MH/PKTINFO] [AEAD] built on Apr 20 2020
+[36mopenvpn    |[0m Fri Dec 10 19:26:47 2021 library versions: OpenSSL 1.1.1g  21 Apr 2020, LZO 2.10
+[36mopenvpn    |[0m Fri Dec 10 19:26:47 2021 Diffie-Hellman initialized with 2048 bit key
+[36mopenvpn    |[0m Fri Dec 10 19:26:47 2021 CRL: loaded 1 CRLs from file /etc/openvpn/crl.pem
+[36mopenvpn    |[0m Fri Dec 10 19:26:47 2021 Outgoing Control Channel Authentication: Using 160 bit message hash 'SHA1' for HMAC authentication
+[36mopenvpn    |[0m Fri Dec 10 19:26:47 2021 Incoming Control Channel Authentication: Using 160 bit message hash 'SHA1' for HMAC authentication
+[36mopenvpn    |[0m Fri Dec 10 19:26:47 2021 ROUTE_GATEWAY 172.18.0.1/255.255.0.0 IFACE=eth0 HWADDR=02:42:ac:12:00:02
+[36mopenvpn    |[0m Fri Dec 10 19:26:47 2021 TUN/TAP device tun0 opened
+[36mopenvpn    |[0m Fri Dec 10 19:26:47 2021 TUN/TAP TX queue length set to 100
+[36mopenvpn    |[0m Fri Dec 10 19:26:47 2021 /sbin/ip link set dev tun0 up mtu 1500
+[36mopenvpn    |[0m Fri Dec 10 19:26:47 2021 /sbin/ip addr add dev tun0 local 192.168.255.1 peer 192.168.255.2
+[36mopenvpn    |[0m Fri Dec 10 19:26:47 2021 /sbin/ip route add 192.168.254.0/24 via 192.168.255.2
+[36mopenvpn    |[0m Fri Dec 10 19:26:47 2021 /sbin/ip route add 192.168.255.0/24 via 192.168.255.2
+[36mopenvpn    |[0m Fri Dec 10 19:26:47 2021 Could not determine IPv4/IPv6 protocol. Using AF_INET
+[36mopenvpn    |[0m Fri Dec 10 19:26:47 2021 Socket Buffers: R=[212992->212992] S=[212992->212992]
+[36mopenvpn    |[0m Fri Dec 10 19:26:47 2021 UDPv4 link local (bound): [AF_INET][undef]:1194
+[36mopenvpn    |[0m Fri Dec 10 19:26:47 2021 UDPv4 link remote: [AF_UNSPEC]
+[36mopenvpn    |[0m Fri Dec 10 19:26:47 2021 GID set to nogroup
+[36mopenvpn    |[0m Fri Dec 10 19:26:47 2021 UID set to nobody
+[36mopenvpn    |[0m Fri Dec 10 19:26:47 2021 MULTI: multi_init called, r=256 v=256
+[36mopenvpn    |[0m Fri Dec 10 19:26:47 2021 IFCONFIG POOL: base=192.168.255.4 size=62, ipv6=0
+[36mopenvpn    |[0m Fri Dec 10 19:26:47 2021 Initialization Sequence Completed
+[36mopenvpn    |[0m Fri Dec 10 19:27:24 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:27:24 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63851
+[36mopenvpn    |[0m Fri Dec 10 19:27:24 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:27:24 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63851
+[36mopenvpn    |[0m Fri Dec 10 19:27:25 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:27:25 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63851
+[36mopenvpn    |[0m Fri Dec 10 19:27:26 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:27:26 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63851
+[36mopenvpn    |[0m Fri Dec 10 19:27:27 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:27:27 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63851
+[36mopenvpn    |[0m Fri Dec 10 19:27:28 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:27:28 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63851
+[36mopenvpn    |[0m Fri Dec 10 19:27:29 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:27:29 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63851
+[36mopenvpn    |[0m Fri Dec 10 19:27:30 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:27:30 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63851
+[36mopenvpn    |[0m Fri Dec 10 19:27:31 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:27:31 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63851
+[36mopenvpn    |[0m Fri Dec 10 19:27:32 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:27:32 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63851
+[36mopenvpn    |[0m Fri Dec 10 19:27:33 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:27:33 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63852
+[36mopenvpn    |[0m Fri Dec 10 19:27:34 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:27:34 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63852
+[36mopenvpn    |[0m Fri Dec 10 19:27:35 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:27:35 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63852
+[36mopenvpn    |[0m Fri Dec 10 19:27:36 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:27:36 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63852
+[36mopenvpn    |[0m Fri Dec 10 19:27:37 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:27:37 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63852
+[36mopenvpn    |[0m Fri Dec 10 19:27:38 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:27:38 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63852
+[36mopenvpn    |[0m Fri Dec 10 19:35:18 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:18 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63476
+[36mopenvpn    |[0m Fri Dec 10 19:35:18 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:18 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63476
+[36mopenvpn    |[0m Fri Dec 10 19:35:19 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:19 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63476
+[36mopenvpn    |[0m Fri Dec 10 19:35:20 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:20 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63476
+[36mopenvpn    |[0m Fri Dec 10 19:35:21 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:21 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63476
+[36mopenvpn    |[0m Fri Dec 10 19:35:22 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:22 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63476
+[36mopenvpn    |[0m Fri Dec 10 19:35:23 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:23 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63476
+[36mopenvpn    |[0m Fri Dec 10 19:35:24 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:24 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63476
+[36mopenvpn    |[0m Fri Dec 10 19:35:25 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:25 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63476
+[36mopenvpn    |[0m Fri Dec 10 19:35:26 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:26 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63476
+[36mopenvpn    |[0m Fri Dec 10 19:35:27 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:27 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63477
+[36mopenvpn    |[0m Fri Dec 10 19:35:28 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:28 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63477
+[36mopenvpn    |[0m Fri Dec 10 19:35:29 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:29 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63477
+[36mopenvpn    |[0m Fri Dec 10 19:35:30 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:30 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63477
+[36mopenvpn    |[0m Fri Dec 10 19:35:31 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:31 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63477
+[36mopenvpn    |[0m Fri Dec 10 19:35:32 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:32 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63477
+[36mopenvpn    |[0m Fri Dec 10 19:35:33 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:33 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63477
+[36mopenvpn    |[0m Fri Dec 10 19:35:34 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:34 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63477
+[36mopenvpn    |[0m Fri Dec 10 19:35:35 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:35 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63477
+[36mopenvpn    |[0m Fri Dec 10 19:35:36 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:36 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63477
+[36mopenvpn    |[0m Fri Dec 10 19:35:37 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:37 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63480
+[36mopenvpn    |[0m Fri Dec 10 19:35:38 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:38 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63480
+[36mopenvpn    |[0m Fri Dec 10 19:35:39 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:39 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63480
+[36mopenvpn    |[0m Fri Dec 10 19:35:40 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:40 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63480
+[36mopenvpn    |[0m Fri Dec 10 19:35:41 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:41 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63480
+[36mopenvpn    |[0m Fri Dec 10 19:35:42 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:42 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63480
+[36mopenvpn    |[0m Fri Dec 10 19:35:43 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:43 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63480
+[36mopenvpn    |[0m Fri Dec 10 19:35:44 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:35:44 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:63480
+[36mopenvpn    |[0m Fri Dec 10 19:36:32 2021 192.168.100.132:54077 TLS: Initial packet from [AF_INET]192.168.100.132:54077, sid=2cf157e4 5e80dd93
+[36mopenvpn    |[0m Fri Dec 10 19:36:32 2021 192.168.100.132:54077 VERIFY OK: depth=1, CN=SAL_kubernITes CA
+[36mopenvpn    |[0m Fri Dec 10 19:36:32 2021 192.168.100.132:54077 VERIFY OK: depth=0, CN=SAL_kITs
+[36mopenvpn    |[0m Fri Dec 10 19:36:32 2021 192.168.100.132:54077 peer info: IV_VER=2.4.7
+[36mopenvpn    |[0m Fri Dec 10 19:36:32 2021 192.168.100.132:54077 peer info: IV_PLAT=linux
+[36mopenvpn    |[0m Fri Dec 10 19:36:32 2021 192.168.100.132:54077 peer info: IV_PROTO=2
+[36mopenvpn    |[0m Fri Dec 10 19:36:32 2021 192.168.100.132:54077 peer info: IV_NCP=2
+[36mopenvpn    |[0m Fri Dec 10 19:36:32 2021 192.168.100.132:54077 peer info: IV_LZ4=1
+[36mopenvpn    |[0m Fri Dec 10 19:36:32 2021 192.168.100.132:54077 peer info: IV_LZ4v2=1
+[36mopenvpn    |[0m Fri Dec 10 19:36:32 2021 192.168.100.132:54077 peer info: IV_LZO=1
+[36mopenvpn    |[0m Fri Dec 10 19:36:32 2021 192.168.100.132:54077 peer info: IV_COMP_STUB=1
+[36mopenvpn    |[0m Fri Dec 10 19:36:32 2021 192.168.100.132:54077 peer info: IV_COMP_STUBv2=1
+[36mopenvpn    |[0m Fri Dec 10 19:36:32 2021 192.168.100.132:54077 peer info: IV_TCPNL=1
+[36mopenvpn    |[0m Fri Dec 10 19:36:32 2021 192.168.100.132:54077 WARNING: 'link-mtu' is used inconsistently, local='link-mtu 1542', remote='link-mtu 1541'
+[36mopenvpn    |[0m Fri Dec 10 19:36:32 2021 192.168.100.132:54077 WARNING: 'comp-lzo' is present in local config but missing in remote config, local='comp-lzo'
+[36mopenvpn    |[0m Fri Dec 10 19:36:32 2021 192.168.100.132:54077 Control Channel: TLSv1.3, cipher TLSv1.3 TLS_AES_256_GCM_SHA384, 2048 bit RSA
+[36mopenvpn    |[0m Fri Dec 10 19:36:32 2021 192.168.100.132:54077 [SAL_kITs] Peer Connection Initiated with [AF_INET]192.168.100.132:54077
+[36mopenvpn    |[0m Fri Dec 10 19:36:32 2021 SAL_kITs/192.168.100.132:54077 MULTI_sva: pool returned IPv4=192.168.255.6, IPv6=(Not enabled)
+[36mopenvpn    |[0m Fri Dec 10 19:36:32 2021 SAL_kITs/192.168.100.132:54077 MULTI: Learn: 192.168.255.6 -> SAL_kITs/192.168.100.132:54077
+[36mopenvpn    |[0m Fri Dec 10 19:36:32 2021 SAL_kITs/192.168.100.132:54077 MULTI: primary virtual IP for SAL_kITs/192.168.100.132:54077: 192.168.255.6
+[36mopenvpn    |[0m Fri Dec 10 19:36:34 2021 SAL_kITs/192.168.100.132:54077 PUSH: Received control message: 'PUSH_REQUEST'
+[36mopenvpn    |[0m Fri Dec 10 19:36:34 2021 SAL_kITs/192.168.100.132:54077 SENT CONTROL [SAL_kITs]: 'PUSH_REPLY,dhcp-option DNS 8.8.8.8,dhcp-option DNS 8.8.4.4,comp-lzo no,route 192.168.255.1,topology net30,ping 10,ping-restart 60,ifconfig 192.168.255.6 192.168.255.5,peer-id 0,cipher AES-256-GCM' (status=1)
+[36mopenvpn    |[0m Fri Dec 10 19:36:34 2021 SAL_kITs/192.168.100.132:54077 Data Channel: using negotiated cipher 'AES-256-GCM'
+[36mopenvpn    |[0m Fri Dec 10 19:36:34 2021 SAL_kITs/192.168.100.132:54077 Outgoing Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+[36mopenvpn    |[0m Fri Dec 10 19:36:34 2021 SAL_kITs/192.168.100.132:54077 Incoming Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+[36mopenvpn    |[0m Fri Dec 10 19:37:44 2021 192.168.100.132:43035 TLS: Initial packet from [AF_INET]192.168.100.132:43035, sid=b10ba127 f2825021
+[36mopenvpn    |[0m Fri Dec 10 19:37:44 2021 192.168.100.132:43035 VERIFY OK: depth=1, CN=SAL_kubernITes CA
+[36mopenvpn    |[0m Fri Dec 10 19:37:44 2021 192.168.100.132:43035 VERIFY OK: depth=0, CN=SAL_kITs
+[36mopenvpn    |[0m Fri Dec 10 19:37:44 2021 192.168.100.132:43035 peer info: IV_VER=2.4.7
+[36mopenvpn    |[0m Fri Dec 10 19:37:44 2021 192.168.100.132:43035 peer info: IV_PLAT=linux
+[36mopenvpn    |[0m Fri Dec 10 19:37:44 2021 192.168.100.132:43035 peer info: IV_PROTO=2
+[36mopenvpn    |[0m Fri Dec 10 19:37:44 2021 192.168.100.132:43035 peer info: IV_NCP=2
+[36mopenvpn    |[0m Fri Dec 10 19:37:44 2021 192.168.100.132:43035 peer info: IV_LZ4=1
+[36mopenvpn    |[0m Fri Dec 10 19:37:44 2021 192.168.100.132:43035 peer info: IV_LZ4v2=1
+[36mopenvpn    |[0m Fri Dec 10 19:37:44 2021 192.168.100.132:43035 peer info: IV_LZO=1
+[36mopenvpn    |[0m Fri Dec 10 19:37:44 2021 192.168.100.132:43035 peer info: IV_COMP_STUB=1
+[36mopenvpn    |[0m Fri Dec 10 19:37:44 2021 192.168.100.132:43035 peer info: IV_COMP_STUBv2=1
+[36mopenvpn    |[0m Fri Dec 10 19:37:44 2021 192.168.100.132:43035 peer info: IV_TCPNL=1
+[36mopenvpn    |[0m Fri Dec 10 19:37:44 2021 192.168.100.132:43035 WARNING: 'link-mtu' is used inconsistently, local='link-mtu 1542', remote='link-mtu 1541'
+[36mopenvpn    |[0m Fri Dec 10 19:37:44 2021 192.168.100.132:43035 WARNING: 'comp-lzo' is present in local config but missing in remote config, local='comp-lzo'
+[36mopenvpn    |[0m Fri Dec 10 19:37:44 2021 192.168.100.132:43035 Control Channel: TLSv1.3, cipher TLSv1.3 TLS_AES_256_GCM_SHA384, 2048 bit RSA
+[36mopenvpn    |[0m Fri Dec 10 19:37:44 2021 192.168.100.132:43035 [SAL_kITs] Peer Connection Initiated with [AF_INET]192.168.100.132:43035
+[36mopenvpn    |[0m Fri Dec 10 19:37:44 2021 MULTI: new connection by client 'SAL_kITs' will cause previous active sessions by this client to be dropped.  Remember to use the --duplicate-cn option if you want multiple clients using the same certificate or username to concurrently connect.
+[36mopenvpn    |[0m Fri Dec 10 19:37:44 2021 MULTI_sva: pool returned IPv4=192.168.255.6, IPv6=(Not enabled)
+[36mopenvpn    |[0m Fri Dec 10 19:37:44 2021 MULTI: Learn: 192.168.255.6 -> SAL_kITs/192.168.100.132:43035
+[36mopenvpn    |[0m Fri Dec 10 19:37:44 2021 MULTI: primary virtual IP for SAL_kITs/192.168.100.132:43035: 192.168.255.6
+[36mopenvpn    |[0m Fri Dec 10 19:37:45 2021 SAL_kITs/192.168.100.132:43035 PUSH: Received control message: 'PUSH_REQUEST'
+[36mopenvpn    |[0m Fri Dec 10 19:37:45 2021 SAL_kITs/192.168.100.132:43035 SENT CONTROL [SAL_kITs]: 'PUSH_REPLY,dhcp-option DNS 8.8.8.8,dhcp-option DNS 8.8.4.4,comp-lzo no,route 192.168.255.1,topology net30,ping 10,ping-restart 60,ifconfig 192.168.255.6 192.168.255.5,peer-id 1,cipher AES-256-GCM' (status=1)
+[36mopenvpn    |[0m Fri Dec 10 19:37:45 2021 SAL_kITs/192.168.100.132:43035 Data Channel: using negotiated cipher 'AES-256-GCM'
+[36mopenvpn    |[0m Fri Dec 10 19:37:45 2021 SAL_kITs/192.168.100.132:43035 Outgoing Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+[36mopenvpn    |[0m Fri Dec 10 19:37:45 2021 SAL_kITs/192.168.100.132:43035 Incoming Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+[36mopenvpn    |[0m Fri Dec 10 19:55:35 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:55:35 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:53128
+[36mopenvpn    |[0m Fri Dec 10 19:55:35 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:55:35 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:53128
+[36mopenvpn    |[0m Fri Dec 10 19:55:36 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:55:36 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:53128
+[36mopenvpn    |[0m Fri Dec 10 19:55:37 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:55:37 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:53128
+[36mopenvpn    |[0m Fri Dec 10 19:55:38 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:55:38 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:53128
+[36mopenvpn    |[0m Fri Dec 10 19:55:39 2021 Authenticate/Decrypt packet error: packet HMAC authentication failed
+[36mopenvpn    |[0m Fri Dec 10 19:55:39 2021 TLS Error: incoming packet authentication failed from [AF_INET]192.168.100.1:53128
+[36mopenvpn    |[0m Fri Dec 10 19:55:48 2021 SAL_kITs/192.168.100.132:43035 [SAL_kITs] Inactivity timeout (--ping-restart), restarting
+[36mopenvpn    |[0m Fri Dec 10 19:55:48 2021 SAL_kITs/192.168.100.132:43035 SIGUSR1[soft,ping-restart] received, client-instance restarting
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 192.168.100.1:53131 TLS: Initial packet from [AF_INET]192.168.100.1:53131, sid=9b58efc4 e8e26ed3
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 192.168.100.1:53131 VERIFY OK: depth=1, CN=SAL_kubernITes CA
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 192.168.100.1:53131 VERIFY OK: depth=0, CN=SAL_kITs
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 192.168.100.1:53131 peer info: IV_VER=3.git::d3f8b18b
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 192.168.100.1:53131 peer info: IV_PLAT=win
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 192.168.100.1:53131 peer info: IV_NCP=2
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 192.168.100.1:53131 peer info: IV_TCPNL=1
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 192.168.100.1:53131 peer info: IV_PROTO=30
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 192.168.100.1:53131 peer info: IV_CIPHERS=AES-256-GCM:AES-128-GCM:CHACHA20-POLY1305:BF-CBC
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 192.168.100.1:53131 peer info: IV_AUTO_SESS=1
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 192.168.100.1:53131 peer info: IV_GUI_VER=OCWindows_3.3.3-2562
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 192.168.100.1:53131 peer info: IV_SSO=webauth,openurl,crtext
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 192.168.100.1:53131 peer info: IV_BS64DL=1
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 192.168.100.1:53131 WARNING: 'link-mtu' is used inconsistently, local='link-mtu 1542', remote='link-mtu 1541'
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 192.168.100.1:53131 WARNING: 'comp-lzo' is present in local config but missing in remote config, local='comp-lzo'
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 192.168.100.1:53131 Control Channel: TLSv1.3, cipher TLSv1.3 TLS_AES_256_GCM_SHA384, 2048 bit RSA
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 192.168.100.1:53131 [SAL_kITs] Peer Connection Initiated with [AF_INET]192.168.100.1:53131
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 SAL_kITs/192.168.100.1:53131 MULTI_sva: pool returned IPv4=192.168.255.6, IPv6=(Not enabled)
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 SAL_kITs/192.168.100.1:53131 MULTI: Learn: 192.168.255.6 -> SAL_kITs/192.168.100.1:53131
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 SAL_kITs/192.168.100.1:53131 MULTI: primary virtual IP for SAL_kITs/192.168.100.1:53131: 192.168.255.6
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 SAL_kITs/192.168.100.1:53131 PUSH: Received control message: 'PUSH_REQUEST'
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 SAL_kITs/192.168.100.1:53131 SENT CONTROL [SAL_kITs]: 'PUSH_REPLY,dhcp-option DNS 8.8.8.8,dhcp-option DNS 8.8.4.4,comp-lzo no,route 192.168.255.1,topology net30,ping 10,ping-restart 60,ifconfig 192.168.255.6 192.168.255.5,peer-id 0,cipher AES-256-GCM' (status=1)
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 SAL_kITs/192.168.100.1:53131 Data Channel: using negotiated cipher 'AES-256-GCM'
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 SAL_kITs/192.168.100.1:53131 Outgoing Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+[36mopenvpn    |[0m Fri Dec 10 19:56:34 2021 SAL_kITs/192.168.100.1:53131 Incoming Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+[36mopenvpn    |[0m Fri Dec 10 19:58:08 2021 192.168.100.132:49830 TLS: Initial packet from [AF_INET]192.168.100.132:49830, sid=aa615c76 1f99ab22
+[36mopenvpn    |[0m Fri Dec 10 19:58:08 2021 192.168.100.132:49830 VERIFY OK: depth=1, CN=SAL_kubernITes CA
+[36mopenvpn    |[0m Fri Dec 10 19:58:08 2021 192.168.100.132:49830 VERIFY OK: depth=0, CN=SAL_kITs
+[36mopenvpn    |[0m Fri Dec 10 19:58:08 2021 192.168.100.132:49830 peer info: IV_VER=2.4.7
+[36mopenvpn    |[0m Fri Dec 10 19:58:08 2021 192.168.100.132:49830 peer info: IV_PLAT=linux
+[36mopenvpn    |[0m Fri Dec 10 19:58:08 2021 192.168.100.132:49830 peer info: IV_PROTO=2
+[36mopenvpn    |[0m Fri Dec 10 19:58:08 2021 192.168.100.132:49830 peer info: IV_NCP=2
+[36mopenvpn    |[0m Fri Dec 10 19:58:08 2021 192.168.100.132:49830 peer info: IV_LZ4=1
+[36mopenvpn    |[0m Fri Dec 10 19:58:08 2021 192.168.100.132:49830 peer info: IV_LZ4v2=1
+[36mopenvpn    |[0m Fri Dec 10 19:58:08 2021 192.168.100.132:49830 peer info: IV_LZO=1
+[36mopenvpn    |[0m Fri Dec 10 19:58:08 2021 192.168.100.132:49830 peer info: IV_COMP_STUB=1
+[36mopenvpn    |[0m Fri Dec 10 19:58:08 2021 192.168.100.132:49830 peer info: IV_COMP_STUBv2=1
+[36mopenvpn    |[0m Fri Dec 10 19:58:08 2021 192.168.100.132:49830 peer info: IV_TCPNL=1
+[36mopenvpn    |[0m Fri Dec 10 19:58:08 2021 192.168.100.132:49830 WARNING: 'link-mtu' is used inconsistently, local='link-mtu 1542', remote='link-mtu 1541'
+[36mopenvpn    |[0m Fri Dec 10 19:58:08 2021 192.168.100.132:49830 WARNING: 'comp-lzo' is present in local config but missing in remote config, local='comp-lzo'
+[36mopenvpn    |[0m Fri Dec 10 19:58:08 2021 192.168.100.132:49830 Control Channel: TLSv1.3, cipher TLSv1.3 TLS_AES_256_GCM_SHA384, 2048 bit RSA
+[36mopenvpn    |[0m Fri Dec 10 19:58:08 2021 192.168.100.132:49830 [SAL_kITs] Peer Connection Initiated with [AF_INET]192.168.100.132:49830
+[36mopenvpn    |[0m Fri Dec 10 19:58:08 2021 MULTI: new connection by client 'SAL_kITs' will cause previous active sessions by this client to be dropped.  Remember to use the --duplicate-cn option if you want multiple clients using the same certificate or username to concurrently connect.
+[36mopenvpn    |[0m Fri Dec 10 19:58:08 2021 MULTI_sva: pool returned IPv4=192.168.255.6, IPv6=(Not enabled)
+[36mopenvpn    |[0m Fri Dec 10 19:58:08 2021 MULTI: Learn: 192.168.255.6 -> SAL_kITs/192.168.100.132:49830
+[36mopenvpn    |[0m Fri Dec 10 19:58:08 2021 MULTI: primary virtual IP for SAL_kITs/192.168.100.132:49830: 192.168.255.6
+[36mopenvpn    |[0m Fri Dec 10 19:58:09 2021 SAL_kITs/192.168.100.132:49830 PUSH: Received control message: 'PUSH_REQUEST'
+[36mopenvpn    |[0m Fri Dec 10 19:58:09 2021 SAL_kITs/192.168.100.132:49830 SENT CONTROL [SAL_kITs]: 'PUSH_REPLY,dhcp-option DNS 8.8.8.8,dhcp-option DNS 8.8.4.4,comp-lzo no,route 192.168.255.1,topology net30,ping 10,ping-restart 60,ifconfig 192.168.255.6 192.168.255.5,peer-id 1,cipher AES-256-GCM' (status=1)
+[36mopenvpn    |[0m Fri Dec 10 19:58:09 2021 SAL_kITs/192.168.100.132:49830 Data Channel: using negotiated cipher 'AES-256-GCM'
+[36mopenvpn    |[0m Fri Dec 10 19:58:09 2021 SAL_kITs/192.168.100.132:49830 Outgoing Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+[36mopenvpn    |[0m Fri Dec 10 19:58:09 2021 SAL_kITs/192.168.100.132:49830 Incoming Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 192.168.100.1:58047 TLS: Initial packet from [AF_INET]192.168.100.1:58047, sid=d927332b 33f3785b
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 192.168.100.1:58047 VERIFY OK: depth=1, CN=SAL_kubernITes CA
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 192.168.100.1:58047 VERIFY OK: depth=0, CN=SAL_kITs
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 192.168.100.1:58047 peer info: IV_VER=3.git::d3f8b18b
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 192.168.100.1:58047 peer info: IV_PLAT=win
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 192.168.100.1:58047 peer info: IV_NCP=2
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 192.168.100.1:58047 peer info: IV_TCPNL=1
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 192.168.100.1:58047 peer info: IV_PROTO=30
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 192.168.100.1:58047 peer info: IV_CIPHERS=AES-256-GCM:AES-128-GCM:CHACHA20-POLY1305:BF-CBC
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 192.168.100.1:58047 peer info: IV_AUTO_SESS=1
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 192.168.100.1:58047 peer info: IV_GUI_VER=OCWindows_3.3.3-2562
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 192.168.100.1:58047 peer info: IV_SSO=webauth,openurl,crtext
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 192.168.100.1:58047 peer info: IV_BS64DL=1
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 192.168.100.1:58047 WARNING: 'link-mtu' is used inconsistently, local='link-mtu 1542', remote='link-mtu 1541'
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 192.168.100.1:58047 WARNING: 'comp-lzo' is present in local config but missing in remote config, local='comp-lzo'
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 192.168.100.1:58047 Control Channel: TLSv1.3, cipher TLSv1.3 TLS_AES_256_GCM_SHA384, 2048 bit RSA
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 192.168.100.1:58047 [SAL_kITs] Peer Connection Initiated with [AF_INET]192.168.100.1:58047
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 MULTI: new connection by client 'SAL_kITs' will cause previous active sessions by this client to be dropped.  Remember to use the --duplicate-cn option if you want multiple clients using the same certificate or username to concurrently connect.
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 MULTI_sva: pool returned IPv4=192.168.255.6, IPv6=(Not enabled)
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 MULTI: Learn: 192.168.255.6 -> SAL_kITs/192.168.100.1:58047
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 MULTI: primary virtual IP for SAL_kITs/192.168.100.1:58047: 192.168.255.6
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 SAL_kITs/192.168.100.1:58047 PUSH: Received control message: 'PUSH_REQUEST'
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 SAL_kITs/192.168.100.1:58047 SENT CONTROL [SAL_kITs]: 'PUSH_REPLY,dhcp-option DNS 8.8.8.8,dhcp-option DNS 8.8.4.4,comp-lzo no,route 192.168.255.1,topology net30,ping 10,ping-restart 60,ifconfig 192.168.255.6 192.168.255.5,peer-id 0,cipher AES-256-GCM' (status=1)
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 SAL_kITs/192.168.100.1:58047 Data Channel: using negotiated cipher 'AES-256-GCM'
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 SAL_kITs/192.168.100.1:58047 Outgoing Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+[36mopenvpn    |[0m Fri Dec 10 19:58:50 2021 SAL_kITs/192.168.100.1:58047 Incoming Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+[36mopenvpn    |[0m Fri Dec 10 19:59:47 2021 192.168.100.132:43895 TLS: Initial packet from [AF_INET]192.168.100.132:43895, sid=d62d47c6 77de498d
+[36mopenvpn    |[0m Fri Dec 10 19:59:47 2021 192.168.100.132:43895 VERIFY OK: depth=1, CN=SAL_kubernITes CA
+[36mopenvpn    |[0m Fri Dec 10 19:59:47 2021 192.168.100.132:43895 VERIFY OK: depth=0, CN=SAL_kITs
+[36mopenvpn    |[0m Fri Dec 10 19:59:47 2021 192.168.100.132:43895 peer info: IV_VER=2.4.7
+[36mopenvpn    |[0m Fri Dec 10 19:59:47 2021 192.168.100.132:43895 peer info: IV_PLAT=linux
+[36mopenvpn    |[0m Fri Dec 10 19:59:47 2021 192.168.100.132:43895 peer info: IV_PROTO=2
+[36mopenvpn    |[0m Fri Dec 10 19:59:47 2021 192.168.100.132:43895 peer info: IV_NCP=2
+[36mopenvpn    |[0m Fri Dec 10 19:59:47 2021 192.168.100.132:43895 peer info: IV_LZ4=1
+[36mopenvpn    |[0m Fri Dec 10 19:59:47 2021 192.168.100.132:43895 peer info: IV_LZ4v2=1
+[36mopenvpn    |[0m Fri Dec 10 19:59:47 2021 192.168.100.132:43895 peer info: IV_LZO=1
+[36mopenvpn    |[0m Fri Dec 10 19:59:47 2021 192.168.100.132:43895 peer info: IV_COMP_STUB=1
+[36mopenvpn    |[0m Fri Dec 10 19:59:47 2021 192.168.100.132:43895 peer info: IV_COMP_STUBv2=1
+[36mopenvpn    |[0m Fri Dec 10 19:59:47 2021 192.168.100.132:43895 peer info: IV_TCPNL=1
+[36mopenvpn    |[0m Fri Dec 10 19:59:47 2021 192.168.100.132:43895 Control Channel: TLSv1.3, cipher TLSv1.3 TLS_AES_256_GCM_SHA384, 2048 bit RSA
+[36mopenvpn    |[0m Fri Dec 10 19:59:47 2021 192.168.100.132:43895 [SAL_kITs] Peer Connection Initiated with [AF_INET]192.168.100.132:43895
+[36mopenvpn    |[0m Fri Dec 10 19:59:47 2021 MULTI: new connection by client 'SAL_kITs' will cause previous active sessions by this client to be dropped.  Remember to use the --duplicate-cn option if you want multiple clients using the same certificate or username to concurrently connect.
+[36mopenvpn    |[0m Fri Dec 10 19:59:47 2021 MULTI_sva: pool returned IPv4=192.168.255.6, IPv6=(Not enabled)
+[36mopenvpn    |[0m Fri Dec 10 19:59:47 2021 MULTI: Learn: 192.168.255.6 -> SAL_kITs/192.168.100.132:43895
+[36mopenvpn    |[0m Fri Dec 10 19:59:47 2021 MULTI: primary virtual IP for SAL_kITs/192.168.100.132:43895: 192.168.255.6
+[36mopenvpn    |[0m Fri Dec 10 19:59:48 2021 SAL_kITs/192.168.100.132:43895 PUSH: Received control message: 'PUSH_REQUEST'
+[36mopenvpn    |[0m Fri Dec 10 19:59:48 2021 SAL_kITs/192.168.100.132:43895 SENT CONTROL [SAL_kITs]: 'PUSH_REPLY,dhcp-option DNS 8.8.8.8,dhcp-option DNS 8.8.4.4,comp-lzo no,route 192.168.255.1,topology net30,ping 10,ping-restart 60,ifconfig 192.168.255.6 192.168.255.5,peer-id 1,cipher AES-256-GCM' (status=1)
+[36mopenvpn    |[0m Fri Dec 10 19:59:48 2021 SAL_kITs/192.168.100.132:43895 Data Channel: using negotiated cipher 'AES-256-GCM'
+[36mopenvpn    |[0m Fri Dec 10 19:59:48 2021 SAL_kITs/192.168.100.132:43895 Outgoing Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+[36mopenvpn    |[0m Fri Dec 10 19:59:48 2021 SAL_kITs/192.168.100.132:43895 Incoming Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 192.168.100.1:56183 TLS: Initial packet from [AF_INET]192.168.100.1:56183, sid=49679318 2278f299
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 192.168.100.1:56183 VERIFY OK: depth=1, CN=SAL_kubernITes CA
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 192.168.100.1:56183 VERIFY OK: depth=0, CN=SAL_kITs
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 192.168.100.1:56183 peer info: IV_VER=3.git::d3f8b18b
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 192.168.100.1:56183 peer info: IV_PLAT=win
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 192.168.100.1:56183 peer info: IV_NCP=2
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 192.168.100.1:56183 peer info: IV_TCPNL=1
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 192.168.100.1:56183 peer info: IV_PROTO=30
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 192.168.100.1:56183 peer info: IV_CIPHERS=AES-256-GCM:AES-128-GCM:CHACHA20-POLY1305:BF-CBC
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 192.168.100.1:56183 peer info: IV_AUTO_SESS=1
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 192.168.100.1:56183 peer info: IV_GUI_VER=OCWindows_3.3.3-2562
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 192.168.100.1:56183 peer info: IV_SSO=webauth,openurl,crtext
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 192.168.100.1:56183 peer info: IV_BS64DL=1
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 192.168.100.1:56183 WARNING: 'link-mtu' is used inconsistently, local='link-mtu 1542', remote='link-mtu 1541'
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 192.168.100.1:56183 WARNING: 'comp-lzo' is present in local config but missing in remote config, local='comp-lzo'
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 192.168.100.1:56183 Control Channel: TLSv1.3, cipher TLSv1.3 TLS_AES_256_GCM_SHA384, 2048 bit RSA
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 192.168.100.1:56183 [SAL_kITs] Peer Connection Initiated with [AF_INET]192.168.100.1:56183
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 MULTI: new connection by client 'SAL_kITs' will cause previous active sessions by this client to be dropped.  Remember to use the --duplicate-cn option if you want multiple clients using the same certificate or username to concurrently connect.
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 MULTI_sva: pool returned IPv4=192.168.255.6, IPv6=(Not enabled)
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 MULTI: Learn: 192.168.255.6 -> SAL_kITs/192.168.100.1:56183
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 MULTI: primary virtual IP for SAL_kITs/192.168.100.1:56183: 192.168.255.6
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 SAL_kITs/192.168.100.1:56183 PUSH: Received control message: 'PUSH_REQUEST'
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 SAL_kITs/192.168.100.1:56183 SENT CONTROL [SAL_kITs]: 'PUSH_REPLY,dhcp-option DNS 8.8.8.8,dhcp-option DNS 8.8.4.4,comp-lzo no,route 192.168.255.1,topology net30,ping 10,ping-restart 60,ifconfig 192.168.255.6 192.168.255.5,peer-id 0,cipher AES-256-GCM' (status=1)
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 SAL_kITs/192.168.100.1:56183 Data Channel: using negotiated cipher 'AES-256-GCM'
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 SAL_kITs/192.168.100.1:56183 Outgoing Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+[36mopenvpn    |[0m Fri Dec 10 20:00:50 2021 SAL_kITs/192.168.100.1:56183 Incoming Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
