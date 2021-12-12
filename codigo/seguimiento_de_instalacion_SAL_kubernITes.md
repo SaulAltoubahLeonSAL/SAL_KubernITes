@@ -244,7 +244,7 @@ minikube addons enable metrics-server # Para utilizar Kubernetes Dashboard
 
 <br />
 
-## - Monitorización
+## - Monitorización - Kubernetes Dashboard, Lens IDE (_Prometheus+Grafana_ necesarios) y Netdata
 
 <br />
 
@@ -351,7 +351,7 @@ bash <(curl -Ss https://my-netdata.io/kickstart.sh) --claim-token 9j7nx0c7y9Bo_k
 
 <br />
 
-## - Seguridad
+## - Seguridad - LinuxAudit, OpenVPN (Intento _fallido_ de pod, plan B en contendor Docker)
 
 <br />
 
@@ -550,7 +550,7 @@ docker-compose run --rm openvpn ovpn_getclient $CLIENTNAME > $CLIENTNAME.ovpn
 
 <br />
 
-## - RBAC (Role Based Access Control)
+### - RBAC (Role Based Access Control)
 ### - Creación clave privada de usuario
 
 ```bash
@@ -704,7 +704,10 @@ kubectl get pods
 
 <br />
 
-## - Almacenamiento de datos - StatefulSet Helm Chart PostgreSQL
+## - Almacenamiento de datos: StatefulSet Helm Chart PostgreSQL
+
+<br />
+
 ### - Preparación del terreno de campo, instalación y actualización de chart Helm de Bitnami
 
 ```bash
@@ -775,13 +778,142 @@ kubectl port-forward --namespace sal-postgresql svc/postgresql 5432:5432 & PGPAS
 
 <br />
 
-## - Redes
-### - Preparación del terreno de campo, instalación y actualización de chart Helm de Bitnami
+## - Redes - Servidor Web Nginx + _Ingress Cert-ManagerTLS Let's Encrypt_
+
+<br />
+
+### - Implantación de _Cert-Manager_
 
 ```bash
-helm repo add bitnami https://charts.bitnami.com/bitnami
+curl -LO https://github.com/jetstack/cert-manager/releases/download/v1.6.1/cert-manager.yaml
 
-helm repo update
+ls -la cert-* # Para comprobar su existencia
+
+mv cert-manager.yaml cert-manager-v1.6.1.yaml # Renombramos el archivo
+
+kubectl create ns cert-manager
+
+kubectl apply --validate=false -f cert-manager-v1.6.1.yaml
 ```
 
-![helm_postgresql_repo_add_install](/capturas/57_helm_postgresql_I.JPG)
+![nginx_cert-manager](63_nginx_I.JPG)
+
+<br />
+
+### - Comprobación de _Cert-Manager_
+
+```bash
+kubectl -n cert-manager get all
+```
+
+![nginx_cert-manager](64_nginx_II.JPG)
+
+<br />
+
+### - Creación de archivos "_sal-issuer.yaml_" y "_sal-certificate.yaml_"
+
+```yaml
+# sal-issuer.yaml
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: sal-selfsigned
+  namespace: cert-manager
+spec:
+  selfSigned: {}
+```
+```yaml
+# sal-certificate.yaml
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: selfsigned-cert
+  namespace: cert-manager
+spec:
+  dnsNames:
+    - sal-kubernites.com
+  secretName: selfsigned-cert-tls
+  issuerRef:
+    name: sal-selfsigned
+```
+
+```bash
+kubectl apply -f sal-issuer.yaml
+
+kubectl apply -f sal-certificate.yaml
+```
+
+![nginx_cert-manager_issuer_certificate](65_nginx_III.JPG)
+
+<br />
+
+### - Comprobación del funcionamiento del _issuer_
+
+```bash
+kubectl -n cert-manager get all
+```
+
+![nginx_cert-manager_issuer_check](66_nginx_IV.JPG)
+
+<br />
+
+### - Habilitación y comprobación de _Minikube Addon **Ingress**_
+
+```bash
+minikube addons enable ingress
+
+kubectl -n ingress-nginx get all
+
+NODEIP=$(minikube ip)
+
+echo $NODEIP
+
+curl http://$NODEIP:#nodo
+```
+
+![nginx_ingress](67_nginx_V.JPG)
+
+![nginx_ingress](68_nginx_VI.JPG)
+
+<br />
+
+### - Comprobación de Clusterissuer _Let's Encrypt_
+```yaml
+# sal-cert-issuer-nginx-ingress.yaml
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: sal-letsencrypt-cluster-issuer
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: sal-kubernites@kubernites.com
+    privateKeySecretRef:
+      name: letsencrypt-cluster-issuer-key
+    solvers:
+      - http01:
+          ingress:
+            class: nginx
+```
+
+```bash
+kubectl apply -f sal-cert-issuer-nginx-ingress.yaml
+
+kubectl describe clusterissuer sal-letsencrypt-cluster-issuer
+```
+
+![nginx_clusterissuer-letsencrypt](69_nginx_VII.JPG)
+
+<br />
+
+### - Despliegue de pods y servicios _sal-kubernites_
+
+```bash
+kubectl apply -f sal-kubernites-deploy.yaml
+
+kubectl apply -f sal-kubernites-svc.yaml
+
+kubectl get pods,svc
+```
+
+![nginx_sal-kubernites_deploy-svc](70_nginx_VIII.JPG)
