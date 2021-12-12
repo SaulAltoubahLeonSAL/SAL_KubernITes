@@ -806,7 +806,7 @@ kubectl apply --validate=false -f cert-manager-v1.6.1.yaml
 kubectl -n cert-manager get all
 ```
 
-![nginx_cert-manager](64_nginx_II.JPG)
+![nginx_cert-manager_check](64_nginx_II.JPG)
 
 <br />
 
