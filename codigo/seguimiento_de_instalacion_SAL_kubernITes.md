@@ -796,7 +796,7 @@ kubectl create ns cert-manager
 kubectl apply --validate=false -f cert-manager-v1.6.1.yaml
 ```
 
-![nginx_cert-manager](63_nginx_I.JPG)
+![nginx_cert-manager](/capturas/63_nginx_I.JPG)
 
 <br />
 
@@ -806,7 +806,7 @@ kubectl apply --validate=false -f cert-manager-v1.6.1.yaml
 kubectl -n cert-manager get all
 ```
 
-![nginx_cert-manager_check](64_nginx_II.JPG)
+![nginx_cert-manager_check](/capturas/64_nginx_II.JPG)
 
 <br />
 
@@ -843,7 +843,7 @@ kubectl apply -f sal-issuer.yaml
 kubectl apply -f sal-certificate.yaml
 ```
 
-![nginx_cert-manager_issuer_certificate](65_nginx_III.JPG)
+![nginx_cert-manager_issuer_certificate](/capturas/65_nginx_III.JPG)
 
 <br />
 
@@ -853,7 +853,7 @@ kubectl apply -f sal-certificate.yaml
 kubectl -n cert-manager get all
 ```
 
-![nginx_cert-manager_issuer_check](66_nginx_IV.JPG)
+![nginx_cert-manager_issuer_check](/capturas/66_nginx_IV.JPG)
 
 <br />
 
@@ -871,9 +871,9 @@ echo $NODEIP
 curl http://$NODEIP:#nodo
 ```
 
-![nginx_ingress](67_nginx_V.JPG)
+![nginx_ingress](/capturas/67_nginx_V.JPG)
 
-![nginx_ingress](68_nginx_VI.JPG)
+![nginx_ingress](/capturas/68_nginx_VI.JPG)
 
 <br />
 
@@ -902,7 +902,7 @@ kubectl apply -f sal-cert-issuer-nginx-ingress.yaml
 kubectl describe clusterissuer sal-letsencrypt-cluster-issuer
 ```
 
-![nginx_clusterissuer-letsencrypt](69_nginx_VII.JPG)
+![nginx_clusterissuer-letsencrypt](/capturas/69_nginx_VII.JPG)
 
 <br />
 
@@ -916,4 +916,4 @@ kubectl apply -f sal-kubernites-svc.yaml
 kubectl get pods,svc
 ```
 
-![nginx_sal-kubernites_deploy-svc](70_nginx_VIII.JPG)
+![nginx_sal-kubernites_deploy-svc](/capturas/70_nginx_VIII.JPG)
