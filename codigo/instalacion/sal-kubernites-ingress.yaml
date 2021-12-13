@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+  name: sal-kubernites-app
+spec:
+  tls:
+  - hosts:
+    - sal-kubernites.duckdns.org
+    secretName: sal-kubernites-app-tls
+  rules:
+  - host: sal-kubernites.duckdns.org
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            name: sal-kubernites-svc
+            port: 
+              number: 80

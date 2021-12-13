@@ -778,7 +778,7 @@ kubectl port-forward --namespace sal-postgresql svc/postgresql 5432:5432 & PGPAS
 
 <br />
 
-## - Redes - Servidor Web Nginx + _Ingress Cert-ManagerTLS Let's Encrypt_
+## - Redes - OPCIÓN A: Servidor Web Nginx + _Ingress Cert-ManagerTLS Let's Encrypt_
 
 <br />
 
@@ -917,3 +917,15 @@ kubectl get pods,svc
 ```
 
 ![nginx_sal-kubernites_deploy-svc](/capturas/70_nginx_VIII.JPG)
+
+(Desgraciadamente no ha llegado a funcionar...pasando al Plan B)
+
+## OPCIÓN B - Despliegue Servidor Web Nginx normal
+
+```bash
+kubectl create ns sal-nginx
+
+kubectl create deployment sal-nginx --image=nginx:latest --namespace=sal-nginx
+```
+
+![nginx_plan_b_deploy](/capturas/71_nginx_B_I.JPG)

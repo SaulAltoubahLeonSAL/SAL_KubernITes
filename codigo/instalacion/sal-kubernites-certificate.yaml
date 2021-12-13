@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: sal-kubernites-app
+  namespace: default
+spec:
+  dnsNames:
+    - salkubernites.duckdns.org
+  secretName: sal-kubernites-app-tls
+  issuerRef:
+    name: sal-letsencrypt-cluster-issuer
+    kind: ClusterIssuer

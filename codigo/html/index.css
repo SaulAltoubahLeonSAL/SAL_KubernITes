@@ -1,0 +1,76 @@
+/*
+	CSS INDEX
+ */
+
+ 
+/*--------------------------------------------------FONDO------------------------------------------*/
+html {
+		background-image: url("wallpaper.png");
+		background-attachment: fixed;
+		background-size: cover;
+		background-position: center;
+}
+
+/*--------------------------------------------------CUERPO------------------------------------------*/
+
+body {
+       	color: white;
+	font-family: Palatino Linotype;
+        font-size: 15pt;
+        line-height: 2.25em;
+}
+
+.master {
+                flex-wrap: nowrap;
+}
+
+/*--------------------------------------------------TEXTO------------------------------------------*/
+
+
+.one {
+        display: block;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 0 100px rgba(255, 255, 255, .15) inset, 0 0 100px rgba(255, 255, 255, .2) inset, 8px 8px 10px black;
+        background: rgba(0, 0, 0, .5);
+        margin: 0 300px;
+        padding: 1em;
+        text-shadow: 3px 3px 10px black;
+        font-size: 16pt;
+}
+
+.two {
+        display: block;
+        border-radius: 10px;
+        text-align: justify;
+        box-shadow: 0 0 100px rgba(255, 255, 255, .15) inset, 0 0 100px rgba(255, 255, 255, .2) inset, 8px 8px 10px black;
+        background: rgba(0, 0, 0, .5);
+        margin: 10px 50px;
+        padding: 10px 25px;
+        text-shadow: 3px 3px 10px black;
+        
+}
+
+.title {
+         text-align: center;
+         display: block;
+         border-radius: 10px;
+         box-shadow: 0 0 100px rgba(255, 255, 255, .15) inset, 0 0 100px rgba(255, 255, 255, .2) inset, 8px 8px 10px black;
+         background: rgba(0, 0, 0, .5);
+         margin: 0 400px;
+         padding: 0 20px;
+         text-shadow: 3px 3px 10px black;
+}
+
+/*--------------------------------------------------ENLACES------------------------------------------*/
+a:hover {
+                            color: skyblue;
+}
+
+a:visited {
+                            color: lightblue;
+}
+
+a:link {
+                        color: lightgray;
+}

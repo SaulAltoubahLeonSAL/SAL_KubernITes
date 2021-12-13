@@ -5,11 +5,11 @@ metadata:
   labels:
     app: sal-kubernites-app
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: sal-kubernites-app
   ports:
     - protocol: TCP
       name: http
       port: 80
-      targetPort: 8397
+      targetPort: 5000
